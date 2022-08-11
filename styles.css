@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.hexagon {
+    position: relative;
+    background-color: dodgerblue;
+    width: 200px;
+    height: 115px;
+    transition: all 1s;
+    border: 0.4vh solid transparent;
+    z-index: 2;
+    text-align: center;
+}
+.hexagon:before, .hexagon:after {
+    content: "";
+    border: inherit;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background-color: dodgerblue;
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    transition: all 2s;
+}
+.hexagon:before {
+    transform: rotate(60deg);
+}
+.hexagon:after {
+    transform: rotate(-60deg);
+}
+
+.hexagon:hover {
+    background-color: red;
+}
+.hexagon:hover::after {
+    transform: rotate(60deg);
+}
+.hexagon:hover::before {
+    transform: rotate(-60deg);
+}
